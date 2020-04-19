@@ -7,14 +7,14 @@ public abstract class  Player{
     String gender;
     String genPic;
     int level;
-    Trainer trainer; 
+    Bag bag; 
     
     public Player(String name,String genPic){
         this.name = name;
         this.genPic = genPic;
         this.exp = 0;
         this.level = 1;
-        trainer = new Trainer();
+        bag = new Bag();
     }
 
     public void setName(String name){
@@ -46,11 +46,5 @@ public abstract class  Player{
     public int getExp(){
         return exp;
     }
-
-
-    public ArrayList<Pokemon> getBag(){
-        return trainer.getBag();
-    }
-   
    
 }

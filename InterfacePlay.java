@@ -15,30 +15,22 @@ public class InterfacePlay extends JFrame{
 
         super("Pokemon Game");
 
-         //background-----------------------------------------------------------------------
-         ImageIcon bgImg = new ImageIcon("img/bg.jpg");
-         JLabel bgLeble = new JLabel("", bgImg, JLabel.CENTER);
-         bgLeble.setBounds(0, 0, 1000, 750);
-         setContentPane(bgLeble);
-         Container c = getContentPane();        
+        //background----------------------------------------------------------------------------------------------------
+        ImageIcon bgImg = new ImageIcon("img/bg.jpg");
+        JLabel bgLeble = new JLabel("", bgImg, JLabel.CENTER);
+        bgLeble.setBounds(0, 0, 1200, 750);
+        setContentPane(bgLeble);
+        Container c = getContentPane();        
          
-         c.setLayout(new BoxLayout(c, BoxLayout.X_AXIS));
+        c.setLayout(new BoxLayout(c, BoxLayout.X_AXIS));
 
-        
-        //pokemons
-        Jigglypuff jigglypuff = new Jigglypuff("Wild Jigglypuff");
-        Snorlax snorlax = new Snorlax("Wild Snorlax");
-        Squirtle squirtle = new Squirtle("Wild Squirtle");
-
-
-       
+        //position panel-----------------------------------------------------------------------------------------------
         JPanel left = new JPanel();
         JPanel center = new JPanel();
         JPanel right = new JPanel();
        
 
-        //set panel------------------------------------------------------------------------------------------------------
-
+        //set panel
         left.setLayout(new BoxLayout(left,BoxLayout.Y_AXIS));
         left.setBackground(new Color(0,0,0,0));        
 
@@ -47,19 +39,17 @@ public class InterfacePlay extends JFrame{
         
 
         center.setLayout(new BoxLayout(center,BoxLayout.Y_AXIS));
-        center.setBackground(new Color(0,0,0,0));
-
-     
+        center.setBackground(new Color(0,0,0,0));     
 
 
-        //Center--------------------------------------------------------------------------------------------------------------
-
+        //Center(trainer)--------------------------------------------------------------------------------------------------
         JPanel boxCenter = new JPanel();
 
         JPanel tLevel = new JPanel();
         JPanel tExp = new JPanel();
         JPanel tName = new JPanel();
 
+        //set panel
         boxCenter.setBackground(new Color(0,0,0,0));
         boxCenter.setLayout(new BoxLayout(boxCenter,BoxLayout.Y_AXIS));
 
@@ -67,6 +57,7 @@ public class InterfacePlay extends JFrame{
         tExp.setBackground(new Color(0,0,0,0));
         tName.setBackground(new Color(0,0,0,0));
 
+        //component
         JLabel name = new JLabel("Name: ");
         JLabel showName = new JLabel();
         showName.setText(player.getName());
@@ -88,7 +79,7 @@ public class InterfacePlay extends JFrame{
         
         JLabel myPlayer = new JLabel(new ImageIcon("img/"+player.getGenPic()));     
         
-        JButton changeName = new JButton("Change Name");
+        JButton changeNameT = new JButton("Change Your Name");
         JButton bagBt = new JButton("Pokemon in Bag");
         
 
@@ -104,57 +95,63 @@ public class InterfacePlay extends JFrame{
         boxCenter.add(tName);       
         boxCenter.add(tLevel);
         boxCenter.add(tExp);
-        boxCenter.add(changeName); 
-        boxCenter.add(bagBt); 
-        
+        boxCenter.add(changeNameT); 
+        boxCenter.add(bagBt);         
        
         //add center
         center.add(boxCenter);
-        center.add(myPlayer);
-      
+        center.add(myPlayer);      
        
         
-        //left-----------------------------------------------------------------------------------------------------------------
+        //left(wild pokemon)---------------------------------------------------------------------------------------------------
        
+        JPanel boxLeft = new JPanel();
 
-        JPanel pic1 = new JPanel();
-        JPanel pic2 = new JPanel();
-        JPanel pic3 = new JPanel();
-       
+        JPanel jig = new JPanel();
+        JPanel snor = new JPanel();
+        JPanel squir = new JPanel();       
   
-        //set panel
-        pic1.setLayout(new BorderLayout(0,0));
-        pic1.setLayout(new BoxLayout(pic1,BoxLayout.X_AXIS));
-        pic1.setBackground(new Color(0,0,0,0));
-
-        pic2.setLayout(new BorderLayout(0,0));
-        pic2.setLayout(new BoxLayout(pic2,BoxLayout.X_AXIS));
-        pic2.setBackground(new Color(0,0,0,0));
-
-        pic3.setLayout(new BorderLayout(0,0));
-        pic3.setLayout(new BoxLayout(pic3,BoxLayout.X_AXIS));
-        pic3.setBackground(new Color(0,0,0,0));
-       
+        //set panel        
+        jig.setLayout(new BoxLayout(jig,BoxLayout.X_AXIS));
+        jig.setBackground(new Color(0,0,0,0));
         
+        snor.setLayout(new BoxLayout(snor,BoxLayout.X_AXIS));
+        snor.setBackground(new Color(0,0,0,0));
+        
+        squir.setLayout(new BoxLayout(squir,BoxLayout.X_AXIS));
+        squir.setBackground(new Color(0,0,0,0));
+       
+        boxLeft.setBackground(new Color(0,0,0,0));
+        boxLeft.setLayout(new BoxLayout(boxLeft,BoxLayout.Y_AXIS));
+        
+        //wild
+        JPanel boxW = new JPanel();
+        boxW.setLayout(new BoxLayout(boxW,BoxLayout.X_AXIS));
+        boxW.setBackground(new Color(0,0,0,0));
+        JLabel wild = new JLabel(new ImageIcon("img/wild1.png"));
 
-        //pic1-----------------------------------------------------------
+        boxW.add(wild);
 
-        JLabel wild = new JLabel(new ImageIcon("img/wild.png"));
+        //Jig--------------------------------------------------------------------------------------   
+        Jigglypuff jigglypuff = new Jigglypuff("Wild Jigglypuff");
 
         JPanel boxJ = new JPanel();
         boxJ.setLayout(new BoxLayout(boxJ,BoxLayout.Y_AXIS));
         boxJ.setBackground(new Color(0,0,0,0));
 
+        //component
         JLabel j = new JLabel(new ImageIcon("img/jigglypuff.png"));
-
-        //name
-        JLabel name1 = new JLabel("     Name: "+ jigglypuff.getName());  
-        //type
-        JLabel type1 = new JLabel("     Type: "+ jigglypuff.getType());  
-        //hp
-        JLabel hp1 = new JLabel("     HP: " + jigglypuff.getHP());        
-        //button 
-        JButton catch1 = new JButton("catch");      
+        
+        JLabel name1 = new JLabel("     Name: "+ jigglypuff.getName());
+        name1.setFont(new Font("Serif", Font.BOLD, 16));  
+        
+        JLabel type1 = new JLabel("     Type: "+ jigglypuff.getType()); 
+        type1.setFont(new Font("Serif", Font.BOLD, 16));
+        
+        JLabel hp1 = new JLabel("     HP: " + jigglypuff.getHP());
+        hp1.setFont(new Font("Serif", Font.BOLD, 16));    
+        
+        JButton catch1 = new JButton("CATCH");      
 
         //add boxJ
         boxJ.add(name1);
@@ -162,27 +159,31 @@ public class InterfacePlay extends JFrame{
         boxJ.add(hp1);
         boxJ.add(catch1);
 
-        //add pic1
-        pic1.add(j);
-        pic1.add(boxJ);
+        //add jig
+        jig.add(j);
+        jig.add(boxJ);
         
        
-        //pic2-----------------------------------------------------------------------------
+        //snor---------------------------------------------------------------------------------------
+        Snorlax snorlax = new Snorlax("Wild Snorlax");
 
         JPanel boxSn = new JPanel();
         boxSn.setLayout(new BoxLayout(boxSn,BoxLayout.Y_AXIS));
         boxSn.setBackground(new Color(0,0,0,0));
 
+        //component
         JLabel sn = new JLabel(new ImageIcon("img/snorlax.png"));
 
-        //name
         JLabel name2 = new JLabel("     Name: "+ snorlax.getName()); 
-        //type
+        name2.setFont(new Font("Serif", Font.BOLD, 16));    
+        
         JLabel type2 = new JLabel("     Type: "+ snorlax.getType());   
-        //hp
-        JLabel hp2 = new JLabel("     HP: " + snorlax.getHP());        
-        //button 
-        JButton catch2 = new JButton("catch");        
+        type2.setFont(new Font("Serif", Font.BOLD, 16));    
+        
+        JLabel hp2 = new JLabel("     HP: " + snorlax.getHP());
+        hp2.setFont(new Font("Serif", Font.BOLD, 16));         
+         
+        JButton catch2 = new JButton("CATCH");        
 
         //add boxSn
         boxSn.add(name2);
@@ -190,27 +191,30 @@ public class InterfacePlay extends JFrame{
         boxSn.add(hp2);
         boxSn.add(catch2);
 
-        //add pic2
-        pic2.add(sn);
-        pic2.add(boxSn);
+        //add snor
+        snor.add(sn);
+        snor.add(boxSn);
 
-        //pic3----------------------------------------------------------------------
+        //squir-----------------------------------------------------------------------------------
+        Squirtle squirtle = new Squirtle("Wild Squirtle");
 
         JPanel boxSq = new JPanel();
         boxSq.setLayout(new BoxLayout(boxSq,BoxLayout.Y_AXIS));
         boxSq.setBackground(new Color(0,0,0,0));
 
-
+        //component
         JLabel sq = new JLabel(new ImageIcon("img/squirtle.png"));
 
-        //name
-        JLabel name3 = new JLabel("     Name: "+ squirtle.getName());  
-        //type
+        JLabel name3 = new JLabel("     Name: "+ squirtle.getName());
+        name3.setFont(new Font("Serif", Font.BOLD, 16));           
+        
         JLabel type3 = new JLabel("     Type: "+ squirtle.getType());  
-        //hp
-        JLabel hp3 = new JLabel("     HP: " + squirtle.getHP());        
-        //button 
-        JButton catch3 = new JButton("catch");        
+        type3.setFont(new Font("Serif", Font.BOLD, 16));         
+        
+        JLabel hp3 = new JLabel("     HP: " + squirtle.getHP());    
+        hp3.setFont(new Font("Serif", Font.BOLD, 16));             
+         
+        JButton catch3 = new JButton("CATCH");        
 
         //add boxSq
         boxSq.add(name3);
@@ -218,33 +222,31 @@ public class InterfacePlay extends JFrame{
         boxSq.add(hp3);
         boxSq.add(catch3);
 
-        //add pic3
-        pic3.add(sq);
-        pic3.add(boxSq);
+        //add squir
+        squir.add(sq);
+        squir.add(boxSq);
        
+        //add boxLeft
+        boxLeft.add(boxW);
+        boxLeft.add(jig);
+        boxLeft.add(snor);
+        boxLeft.add(squir);
         
-        //Add left-------------------------------------------------------        
-        //left.add(wild);
-        left.add(pic1);
-        left.add(pic2);
-        left.add(pic3);
-        
+        //Add left      
+        left.add(boxLeft);        
        
        
-        //right---------------------------------------------------------------------------------------------------------------
-
-        //pikachu--------------------------------------------------------
-
+        //right(pikachu)-------------------------------------------------------------------------------------------------------
         Pikachu pikachu = new Pikachu("MyPikachu");
 
         //panel
-
         JPanel boxRight = new JPanel();
 
         JPanel pName = new JPanel();
         JPanel pHP = new JPanel();
         JPanel pType = new JPanel();
         
+        //set panel
         boxRight.setBackground(new Color(0,0,0,0));
         boxRight.setLayout(new BoxLayout(boxRight,BoxLayout.Y_AXIS));
 
@@ -254,23 +256,23 @@ public class InterfacePlay extends JFrame{
         
         //pic
         JLabel p = new JLabel(new ImageIcon("img/pikachu.png"));
+        JLabel b = new JLabel(new ImageIcon("img/berry.png"));        
         JLabel my = new JLabel(new ImageIcon("img/my.png"));
-        JLabel b = new JLabel(new ImageIcon("img/berry.png"));
-
+       
         //name        
         JLabel name4 = new JLabel("     Name: ");
         JLabel showName4 = new JLabel();
         showName4.setText(pikachu.getName());
-        showName4.setFont(new Font("Serif", Font.BOLD, 15));
-        name4.setFont(new Font("Serif", Font.BOLD, 15));
+        showName4.setFont(new Font("Serif", Font.BOLD, 18));
+        name4.setFont(new Font("Serif", Font.BOLD, 18));
 
         //type
         JLabel type = new JLabel("     Type: "+ pikachu.getType());
-        type.setFont(new Font("Serif", Font.BOLD, 15));
+        type.setFont(new Font("Serif", Font.BOLD, 18));
         
         //hp
         JLabel hp = new JLabel("HP ");
-        hp.setFont(new Font("Serif", Font.BOLD, 15));
+        hp.setFont(new Font("Serif", Font.BOLD, 18));
         hp.setBackground(new Color(0,0,0,0));
 
         JProgressBar hpBar = new JProgressBar();
@@ -279,8 +281,8 @@ public class InterfacePlay extends JFrame{
         hpBar.setValue(pikachu.getHP());    
         
         //button 
-        JButton berry = new JButton("eat berry");
-        JButton rename = new JButton("Change name");
+        JButton berry = new JButton("Eat Berry");
+        JButton changeNameP = new JButton("Change Pokemon Name");
 
         //add
         pName.add(name4);
@@ -289,14 +291,13 @@ public class InterfacePlay extends JFrame{
         pHP.add(hp);
         pHP.add(hpBar);  
         
-        //add box
+        //add boxRight
         boxRight.add(pName); 
         boxRight.add(pType); 
         boxRight.add(pHP);
         boxRight.add(b);
         boxRight.add(berry); 
-        boxRight.add(rename); 
-        
+        boxRight.add(changeNameP);         
        
         //add right
         right.add(my);
@@ -310,11 +311,12 @@ public class InterfacePlay extends JFrame{
         c.add(center);
         c.add(right);
         
-        //Add action --------------------------------------------------------------------------------------------------------
 
-                
+        //Add action --------------------------------------------------------------------------------------------------------               
         
-        changeName.addActionListener(new ActionListener(){
+        //center
+        //change name trainer
+        changeNameT.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
                 String s = (String)JOptionPane.showInputDialog(null,"\"Input your name\"","change trainer name",JOptionPane.PLAIN_MESSAGE,null,null,null);
@@ -324,14 +326,17 @@ public class InterfacePlay extends JFrame{
         }
         });;
 
+        //show pokemon name in bag
         bagBt.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
+
+                Bag bag = new Bag();
                 
-                JLabel pokemonName= new JLabel();
+                JLabel pokemonName = new JLabel();
                 pokemonName.setFont(new Font("Serif", Font.BOLD, 15));       
                 String po = "Pokemon in Bag: ";
-                for(Pokemon p: player.getBag()){
+                for(Pokemon p: bag.getBag()){
                     po += p.getName() + ", " ;          
                 }
                 pokemonName.setText(po);
@@ -339,10 +344,9 @@ public class InterfacePlay extends JFrame{
         }
         });;
 
-       
-        
-
-        rename.addActionListener(new ActionListener(){
+        //right
+        //change name pokemon
+        changeNameP.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
                 String s = (String)JOptionPane.showInputDialog(null,"\"Input new name\"","change pokemon name",JOptionPane.PLAIN_MESSAGE,null,null,null);
@@ -352,6 +356,7 @@ public class InterfacePlay extends JFrame{
         }
         });;
 
+        //eat berry
         berry.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
@@ -370,9 +375,15 @@ public class InterfacePlay extends JFrame{
         }
         });;
 
+
+        //left
+        //catch Jigglypuff 
         catch1.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
+
+                Bag bag = new Bag();
+                Jigglypuff j = new Jigglypuff("MyJigglypuff");
 
                 player.setExp(player.getExp()+20);
                 expBar.setValue(player.getExp()); 
@@ -392,7 +403,7 @@ public class InterfacePlay extends JFrame{
                         }                           
                         else if(result == 1){
                             JOptionPane.showMessageDialog(null,"YOU WIN! you can catch this pokemon");
-                            
+                            bag.setBag(j);                            
                         }                      
                     }   
                 }                
@@ -406,6 +417,7 @@ public class InterfacePlay extends JFrame{
         }
         });;
 
+        //catch Snorlax 
         catch2.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
@@ -442,6 +454,7 @@ public class InterfacePlay extends JFrame{
         }
         });;
 
+        //catch Squirtle
         catch3.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
@@ -478,13 +491,11 @@ public class InterfacePlay extends JFrame{
         }
         });;
 
-
         
-
-        
+        //set 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000,750);
+        setSize(1200,750);
         setVisible(true);
     }
     

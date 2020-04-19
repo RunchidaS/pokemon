@@ -10,47 +10,48 @@ import javax.swing.JLabel;
 
 
 public class MainGame extends JFrame{
-
     
-    
-
-   
-    // private JPanel gameMenuPanel;
-    // private JButton catchBt;
-    // private JButton statusBt;
-    // private JButton playerBt;
-
-    JLabel l1;
-    JTextField f1;
+    JLabel n;
+    JTextField f;
     JButton b1;
     JButton b2;
     JButton b3;
-   
 
-
-    public static void main(String args[]) {        
-       
-        new MainGame();
-       
+    public static void main(String args[]) {      
+        
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    MainGame main = new MainGame(); 
+                    main.setVisible(true);
+                    main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    main.setSize(900,700);                
+                    main.setResizable(false);
+                    main.setLocationRelativeTo(null);     
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }                
+            }
+        });       
     }
-
      
     public MainGame(){
 
-        super("Choose Character");
+        super("Choose Trainer");
 
        
-        //background-----------------------------------------------------------------------
-        ImageIcon bgImg = new ImageIcon("img/bg.jpg");
+        //background---------------------------------------------------------------------------------------
+        ImageIcon bgImg = new ImageIcon("img/bg1.jpg");
         JLabel bgLeble = new JLabel("", bgImg, JLabel.CENTER);
-        bgLeble.setBounds(0, 0, 1000, 750);
-        setContentPane(bgLeble);
-        Container c = getContentPane();       
-        
-        
-        c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
+        bgLeble.setBounds(0, 0, 900, 700);
 
-        //logo
+        setContentPane(bgLeble);
+        Container c = getContentPane();   
+        c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
+       
+
+        //logo---------------------------------------------------------------------------------------------
         JPanel logo = new JPanel();
         JLabel showLogo = new JLabel(new ImageIcon("img/logo.png"));
         logo.setBackground(new Color(0,0,0,0));
@@ -58,23 +59,22 @@ public class MainGame extends JFrame{
         logo.add(showLogo);
 
 
-        //Set name
+        //Set name-----------------------------------------------------------------------------------------
 
         JPanel inputName = new JPanel();
         inputName.setBackground(new Color(0,0,0,0));    
 
-        l1 = new JLabel("Enter your Name : ");
-        f1 = new JTextField(20);
-
+        n = new JLabel("Enter Your Name : ");
+        f = new JTextField(20);
         
-        inputName.add(l1);
-        inputName.add(f1);
+        inputName.add(n);
+        inputName.add(f);
 
 
-        //Panel gender 
-        JPanel setGender = new JPanel();
-        setGender.setLayout(new BoxLayout(setGender,BoxLayout.X_AXIS));
-        setGender.setBackground(new Color(0,0,0,0));
+        //Panel gender------------------------------------------------------------------------------------- 
+        JPanel gender = new JPanel();
+        gender.setLayout(new BoxLayout(gender,BoxLayout.X_AXIS));
+        gender.setBackground(new Color(0,0,0,0));
         
 
         //male
@@ -114,121 +114,42 @@ public class MainGame extends JFrame{
         button2.add(b2);
 
         female.add(button2);
-        female.add(picFemaleBox);
-        
-        
+        female.add(picFemaleBox); 
 
+        //add-------------------------------------------------------------------------------------------------
+        //add gender
+        gender.add(male);
+        gender.add(female);
         
-
-        //set gender
-        setGender.add(male);
-        setGender.add(female);
-
-        
-       //set c
+       //add c
         c.add(logo);
         c.add(inputName);
-        c.add(setGender);      
+        c.add(gender);      
         
 
-        //
+        //set button----------------------------------------------------------------------------------------
         ClickListerner click = new ClickListerner();
         b1.addActionListener(click);
         b2.addActionListener(click);
-        
-
-        //set
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000,700);     
-        setVisible(true);
-        setResizable(false);
-        setLocationRelativeTo(null);       
-       
-            
+ 
     }    
 
         public class ClickListerner implements ActionListener{
 
             public void actionPerformed(ActionEvent e){
                 if(e.getSource() == b1){
-                    Player p1 = new Male(f1.getText());
+                    Player p1 = new Male(f.getText());
                     dispose();
                     new InterfacePlay(p1);
                 }
                 if(e.getSource() == b2){
-                    Player p1 = new Female(f1.getText());
+                    Player p1 = new Female(f.getText());
                     dispose();
                     new InterfacePlay(p1);
                 }               
-            }
-
-
-            
-
-
-        // gameMenuPanel = new JPanel();
-        // gameMenuPanel.setLayout(new BoxLayout(gameMenuPanel,BoxLayout.Y_AXIS));
-        // gameMenuPanel.setBackground(new Color(255,255,255,0));
-        // gameMenuPanel.setBounds(420, 200, 250, 120);
-        
-
-        // //Menu game play button
-
-        // playerBt = new JButton("Trainer Status");
-        // playerBt.setAlignmentX(CENTER_ALIGNMENT);
-        // playerBt.setFont(new Font("Serif", Font.BOLD, 20));
-        // playerBt.setForeground(Color.BLACK);
-
-        // catchBt = new JButton("Catch Pokemon!!");
-        // catchBt.setAlignmentX(CENTER_ALIGNMENT);
-        // catchBt.setFont(new Font("Serif", Font.BOLD, 20));
-        // catchBt.setForeground(Color.BLACK);
-
-        // statusBt = new JButton("Status Pokemon in Bag");
-        // statusBt.setAlignmentX(CENTER_ALIGNMENT);
-        // statusBt.setFont(new Font("Serif", Font.BOLD, 20));
-        // statusBt.setForeground(Color.BLACK);
-
-
-        // playerBt.addActionListener(new ActionListener(){
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-                
-        //         new TrainerStatus(trainer);                 
-            
-        //     }
-        // });
-
-        // catchBt.addActionListener(new ActionListener(){
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-                
-        //         new ChoosePokemon(trainer);                 
-            
-        //     }
-        // });
-
-        // statusBt.addActionListener(new ActionListener(){
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-        
-        //             new PokemonStatus(trainer.getBag().get(0));                  
- 
-        //     }
-        // });
-
-        // gameMenuPanel.add(playerBt);
-        // gameMenuPanel.add(catchBt);
-        // gameMenuPanel.add(statusBt);
-       
-
-        // c.add(gameMenuPanel);          
-
-        
+            }       
 
         }
-
 }
 
 
