@@ -383,13 +383,13 @@ public class InterfacePlay extends JFrame{
             public void actionPerformed(ActionEvent e){
 
                 Bag bag = new Bag();
-                Jigglypuff j = new Jigglypuff("MyJigglypuff");
+                Jigglypuff j = new Jigglypuff("Wild Jigglypuff");
 
                 player.setExp(player.getExp()+20);
                 expBar.setValue(player.getExp()); 
 
                 if(pikachu.getHP() == 0){
-                    JOptionPane.showMessageDialog(null,"you choose eat berry!!");
+                    JOptionPane.showMessageDialog(null,"your pikachu should EAT BERRY!!");
                 }
 
                 else if(pikachu.getHP() > 0){
@@ -420,13 +420,16 @@ public class InterfacePlay extends JFrame{
         //catch Snorlax 
         catch2.addActionListener(new ActionListener(){
 
+            Bag bag = new Bag();
+            Snorlax sn  = new Snorlax("Wild Snorlax");
+
             public void actionPerformed(ActionEvent e){
 
                 player.setExp(player.getExp()+20);
                 expBar.setValue(player.getExp()); 
 
                 if(pikachu.getHP() == 0){
-                    JOptionPane.showMessageDialog(null,"you choose eat berry!!");
+                    JOptionPane.showMessageDialog(null,"your pikachu should EAT BERRY!!");
                 }
 
                 else if(pikachu.getHP() > 0){
@@ -440,7 +443,7 @@ public class InterfacePlay extends JFrame{
                         }                           
                         else if(result == 1){
                             JOptionPane.showMessageDialog(null,"YOU WIN! you can catch this pokemon");
-                            
+                            bag.setBag(sn);
                         }                      
                     }   
                 }                
@@ -457,13 +460,16 @@ public class InterfacePlay extends JFrame{
         //catch Squirtle
         catch3.addActionListener(new ActionListener(){
 
+            Bag bag = new Bag();
+            Squirtle sq  = new Squirtle("Wild Squirtle");
+
             public void actionPerformed(ActionEvent e){
 
                 player.setExp(player.getExp()+20);
                 expBar.setValue(player.getExp()); 
 
                 if(pikachu.getHP() == 0){
-                    JOptionPane.showMessageDialog(null,"you choose eat berry!!");
+                    JOptionPane.showMessageDialog(null,"your pikachu should EAT BERRY!!");
                 }
 
                 else if(pikachu.getHP() > 0){
@@ -477,7 +483,7 @@ public class InterfacePlay extends JFrame{
                         }                           
                         else if(result == 1){
                             JOptionPane.showMessageDialog(null,"YOU WIN! you can catch this pokemon");
-                            
+                            bag.setBag(sq);
                         }                      
                     }   
                 }                

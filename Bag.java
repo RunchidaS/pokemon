@@ -5,7 +5,8 @@ public class Bag {
 
     public Bag(){
         bag = new ArrayList<Pokemon>();             
-        bag.add(new Pikachu("MyPikachu"));  
+        bag.add(new Pikachu("MyPikachu")); 
+        bag.add(new Squirtle("MySquirtle")); 
     }  
     
     public ArrayList<Pokemon> getBag(){
@@ -15,6 +16,5 @@ public class Bag {
     public void setBag(Pokemon p){
         bag.add(p);
     }
-
 
 }
