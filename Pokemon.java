@@ -48,46 +48,6 @@ public abstract class Pokemon {
 
     public void setHP(int hp){
         this.hp = hp;
-    }   
-
-    
-
-
-    public abstract void attack(Pokemon enemy); 
-
-    public boolean damage(int value) {
-        if (hp == 0)
-            return false;
-
-        int currentHP = hp-value;
-        if(currentHP >= 0){
-            this.hp = currentHP;            
-        }            
-        else{
-             this.hp = 0;            
-        }
-        return true; 
-
-    }
-
-    
-    // public void eatBerry(){
-    //     this.hp += 5;
-    // }
-
-   
-
-    // public void sleep(){
-    //     this.hp += 5;
-    // }
-
-    // public void run(){
-    //     this.hp += 5;
-    // }
-
-    // public void faint(){
-    //     this.hp = 0;
-    // }
-
-   
+    }  
+         
 }

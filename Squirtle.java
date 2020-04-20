@@ -3,9 +3,4 @@ public class Squirtle extends Pokemon{
         super(name , 80, "Water", "squirtle.gif");
         
     }
-
-    public void attack(Pokemon enemy){
-        System.out.println("Pokemon " + getName() + " attack " + enemy.getName());
-        enemy.damage(50);
-    }
 }
