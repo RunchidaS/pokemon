@@ -1,7 +1,7 @@
 
 public class Jigglypuff extends Pokemon{
     public Jigglypuff(String name){
-        super(name , 100, "Fairy","jigglypuff.gif");
+        super(name , 100, "Fairy");
         
     }
     

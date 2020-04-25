@@ -151,13 +151,13 @@ public class InterfacePlay extends JFrame{
         JLabel hp1 = new JLabel("     HP: " + jigglypuff.getHP());
         hp1.setFont(new Font("Serif", Font.BOLD, 16));    
         
-        JButton catch1 = new JButton("CATCH");      
+        JButton attack1 = new JButton("ATTACK");      
 
         //add boxJ
         boxJ.add(name1);
         boxJ.add(type1);
         boxJ.add(hp1);
-        boxJ.add(catch1);
+        boxJ.add(attack1);
 
         //add jig
         jig.add(j);
@@ -183,13 +183,13 @@ public class InterfacePlay extends JFrame{
         JLabel hp2 = new JLabel("     HP: " + snorlax.getHP());
         hp2.setFont(new Font("Serif", Font.BOLD, 16));         
          
-        JButton catch2 = new JButton("CATCH");        
+        JButton attack2 = new JButton("ATTACK");        
 
         //add boxSn
         boxSn.add(name2);
         boxSn.add(type2);
         boxSn.add(hp2);
-        boxSn.add(catch2);
+        boxSn.add(attack2);
 
         //add snor
         snor.add(sn);
@@ -214,13 +214,13 @@ public class InterfacePlay extends JFrame{
         JLabel hp3 = new JLabel("     HP: " + squirtle.getHP());    
         hp3.setFont(new Font("Serif", Font.BOLD, 16));             
          
-        JButton catch3 = new JButton("CATCH");        
+        JButton attack3 = new JButton("ATTACK");        
 
         //add boxSq
         boxSq.add(name3);
         boxSq.add(type3);
         boxSq.add(hp3);
-        boxSq.add(catch3);
+        boxSq.add(attack3);
 
         //add squir
         squir.add(sq);
@@ -378,21 +378,21 @@ public class InterfacePlay extends JFrame{
 
         //left
         //catch Jigglypuff 
-        catch1.addActionListener(new ActionListener(){
+        attack1.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e){
 
                 Bag bag = new Bag();
                 Jigglypuff j = new Jigglypuff("Wild Jigglypuff");
 
-                player.setExp(player.getExp()+20);
-                expBar.setValue(player.getExp()); 
-
                 if(pikachu.getHP() == 0){
-                    JOptionPane.showMessageDialog(null,"your pikachu should EAT BERRY!!");
+                    JOptionPane.showMessageDialog(null,"CAN'T ATTACK, your pikachu should EAT BERRY!!");
                 }
 
                 else if(pikachu.getHP() > 0){
+
+                    player.setExp(player.getExp()+20);
+                    expBar.setValue(player.getExp()); 
 
                     for(int i=0; i<1; i++){
                         int result = (int)(Math.random() * 2);                    
@@ -418,21 +418,22 @@ public class InterfacePlay extends JFrame{
         });;
 
         //catch Snorlax 
-        catch2.addActionListener(new ActionListener(){
+        attack2.addActionListener(new ActionListener(){
 
-            Bag bag = new Bag();
-            Snorlax sn  = new Snorlax("Wild Snorlax");
+            public void actionPerformed(ActionEvent e){     
+                
+                Bag bag = new Bag();
+                Snorlax sn  = new Snorlax("Wild Snorlax");
 
-            public void actionPerformed(ActionEvent e){
-
-                player.setExp(player.getExp()+20);
-                expBar.setValue(player.getExp()); 
 
                 if(pikachu.getHP() == 0){
-                    JOptionPane.showMessageDialog(null,"your pikachu should EAT BERRY!!");
+                    JOptionPane.showMessageDialog(null,"CAN'T ATTACK, your pikachu should EAT BERRY!!");
                 }
 
                 else if(pikachu.getHP() > 0){
+
+                    player.setExp(player.getExp()+20);
+                    expBar.setValue(player.getExp()); 
 
                     for(int i=0; i<1; i++){
                         int result = (int)(Math.random() * 2);                    
@@ -458,21 +459,22 @@ public class InterfacePlay extends JFrame{
         });;
 
         //catch Squirtle
-        catch3.addActionListener(new ActionListener(){
-
-            Bag bag = new Bag();
-            Squirtle sq  = new Squirtle("Wild Squirtle");
+        attack3.addActionListener(new ActionListener(){            
 
             public void actionPerformed(ActionEvent e){
 
-                player.setExp(player.getExp()+20);
-                expBar.setValue(player.getExp()); 
-
+                Bag bag = new Bag();
+                Squirtle sq  = new Squirtle("Wild Squirtle");
+                
                 if(pikachu.getHP() == 0){
-                    JOptionPane.showMessageDialog(null,"your pikachu should EAT BERRY!!");
+                    JOptionPane.showMessageDialog(null,"CAN'T ATTACK, your pikachu should EAT BERRY!!");
                 }
 
                 else if(pikachu.getHP() > 0){
+
+                    player.setExp(player.getExp()+20);
+                    expBar.setValue(player.getExp()); 
+
 
                     for(int i=0; i<1; i++){
                         int result = (int)(Math.random() * 2);                    
@@ -503,6 +505,7 @@ public class InterfacePlay extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200,750);
         setVisible(true);
+        setLocationRelativeTo(null); 
     }
     
 

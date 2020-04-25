@@ -139,13 +139,15 @@ public class MainGame extends JFrame{
             public void actionPerformed(ActionEvent e){
                 if(e.getSource() == b1){
                     Player p1 = new Male(f.getText());
-                    dispose();
                     new InterfacePlay(p1);
+                    dispose();
+                    
                 }
                 if(e.getSource() == b2){
                     Player p1 = new Female(f.getText());
-                    dispose();
                     new InterfacePlay(p1);
+                    dispose();
+                    
                 }               
             }       
 

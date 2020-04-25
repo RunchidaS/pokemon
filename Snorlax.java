@@ -1,7 +1,7 @@
 
 public class Snorlax extends Pokemon{
     public Snorlax(String name){
-        super(name, 200, "Normal", "snorlax.gif");
+        super(name, 200, "Normal");
     }
 
 }
